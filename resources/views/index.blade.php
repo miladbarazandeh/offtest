@@ -106,7 +106,7 @@
                         <div class="tooltip-1 bg-blue">{{$promotion['minimum_user_experience']}}<span
                                     class="tooltiptext-1">حداقل امتیاز لازم برای این پیشنهاد</span></div>
                         {{--<span class="tooltip-2 bg-blue">+1<span class="tooltiptext-1">امتیاز دریافتی برای این پیشنهاد</span></span>--}}
-                        <a href="readmore/test.html"><img src="http://127.0.0.1:8001/image/{{$promotion['image']}}" alt=""></a>
+                        <a href="{{route('product', ['id' => $promotion['id']])}}"><img src="http://127.0.0.1:8001/image/{{$promotion['image']}}" alt=""></a>
                         <div class="col-sm-12 pl-0 pr-0">
                             <p class="card-name">{{$promotion['title']}}</p>
                             <p class="card-price">قیمت اصلی: <span class="span-1">{{$promotion['full_price']}} تومان</span></p>
@@ -116,7 +116,7 @@
                             <div class="col-2 pl-0 pr-0 tooltip-2 bg-blue">+{{$promotion['available_product_count']}}<span class="tooltiptext-1">امتیاز دریافتی برای این پیشنهاد</span>
                             </div>
                         </div>
-                        <button type="submit" class="card-btn">بیشتر بخوانید</button>
+                        <a class="btn btn-warning card-btn" href="{{route('product', ['id' => $promotion['id']])}}">بیشتر بخوانید</a>
                     </div>
                 </div>
             @endforeach
@@ -142,34 +142,32 @@
 {{--</div>--}}
 <!--پایان صفحه بندی-->
 <div class="clr"></div>
-<!--فوتر-->
 <footer class="footer text-whait">
     <h1>OFFTEST.IR</h1>
     <div class="row">
         <div class="col-12 col-md-9 col-lg-8">
-            <p> لورم ایپسوم با افتخار در خدمت شبانه روز شماست،به همراه مدیریت عالی و با تجربه</p>
+            <p>محصولات خود را با تخفیف تبلیغ کنید و شانس خود را برای فروش واقعی در مارکت‌پلیس‌ها بالا ببرید.</p>
             <hr id="footer-hr">
-            <p>&copy; لورم ایپسوم از هیچکی کاپی نمیزنه ،خودش مستقله گردنشم کلفنه فهمیدی یا حالیت کنم؟ <a href="#">نفهمیدم</a>
+            <p>&copy;تست‌آف
             </p>
         </div>
         <div class="col-12 col-md-3 col-lg-4">
-            <h4>تیم ما را دنبال کنید :</h4>
+            <h4>ما را دنبال کنید:</h4>
             <a href="#" title="instagram" id="instagram"><i class="fa fa-instagram" style="font-size:25px"></i></a>
-            <a href="#" title="facebook" id="facebook"><i class="fa fa-facebook-official"
-                                                          style="font-size:25px"></i></a>
-            <a href="#" title="github" id="github"><i class="fa fa-github" style="font-size:25px"></i></a>
-            <a href="#" title="skype" id="skype"><i class="fa fa-skype" style="font-size:25px"></i></a>
-            <a href="#" title="telegram" id="telegram"><i class="fa fa-telegram" style="font-size:25px"></i></a>
-            <a href="#" title="twitter" id="twitter"><i class="fa fa-twitter" style="font-size:25px"></i></a>
-            <a href="#" title="whatsapp" id="whatsapp"><i class="fa fa-whatsapp" style="font-size:25px"></i></a>
-            <a href="#" title="wikipedia" id="wikipedia"><i class="fa fa-wikipedia-w" style="font-size:25px"></i></a>
-            <a href="#" title="youtube" id="youtube"><i class="fa fa-youtube" style="font-size:25px"></i></a>
-            <a href="#" title="android" id="android"><i class="fa fa-android" style="font-size:25px"></i></a>
-            <a href="#" title="apple" id="apple"><i class="fa fa-apple" style="font-size:25px"></i></a>
+            {{--<a href="#" title="facebook" id="facebook"><i class="fa fa-facebook-official"--}}
+            {{--style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="github" id="github"><i class="fa fa-github" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="skype" id="skype"><i class="fa fa-skype" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="telegram" id="telegram"><i class="fa fa-telegram" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="twitter" id="twitter"><i class="fa fa-twitter" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="whatsapp" id="whatsapp"><i class="fa fa-whatsapp" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="wikipedia" id="wikipedia"><i class="fa fa-wikipedia-w" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="youtube" id="youtube"><i class="fa fa-youtube" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="android" id="android"><i class="fa fa-android" style="font-size:25px"></i></a>--}}
+            {{--<a href="#" title="apple" id="apple"><i class="fa fa-apple" style="font-size:25px"></i></a>--}}
         </div>
     </div>
 </footer>
-<!--پایان فوتر-->
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
