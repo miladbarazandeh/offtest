@@ -10,6 +10,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const TABLE = 'users';
+    const COLUMN_ID = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +39,62 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId(): int
+    {
+        return $this->{self::COLUMN_ID};
+    }
+    public function getName(): string
+    {
+        return $this->name;
+    }
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+    public function getFirstName(): string
+    {
+        if ($this->name) {
+            return mb_split(' ', $this->name)[0];
+        }
+        return '';
+    }
+
+    public static function getByEmail(string $email): self
+    {
+        return (new User())
+            ->where('email', '=', $email)
+            ->first();
+    }
+
+    private static function getEntityItemCacheKey(int $id = 0): string
+    {
+        return 'mysql:model:'.static::TABLE.':'.$id;
+    }
+
+    /**
+     * @param int $id
+     * @return $this
+     */
+    public static function getById(int $id)
+    {
+        $cacheKey = self::getEntityItemCacheKey($id);
+        $model = \Cache::remember($cacheKey, 300, function () use ($id) {
+            $model = (new User())->find($id);
+
+            if ($model !== null) {
+                return $model;
+            }
+            return null;
+        });
+        return $model;
+    }
+
+    public static function getColumns(string $col = '*', string $alias = '', $with_table = true)
+    {
+        if ($col == '*') {
+            $alias = '';
+        }
+        return ($with_table ? static::TABLE.'.': '' ).$col.($alias ? ' AS '.$alias: '');
+    }
 }
