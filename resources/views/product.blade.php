@@ -43,7 +43,7 @@
             </nav>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-5 ">
-            <img src="https://de.testzon.com/img/logo.png" alt="logo-page" id="logo">
+            <img src="{{asset('pic/logo.svg')}}" alt="logo-page" id="logo">
         </div>
     </div>
 </header>
@@ -71,7 +71,7 @@
             </div>
             <div class="my-2">
                 <a class="btn btn-lg btn-warning" href="{{$promotion['url']}}" target="_blank">مشاهده</a>
-                <a class="btn btn-lg btn-info" href="" target="_blank">تست</a>
+                <a class="btn btn-lg btn-info" href="{{route('panel.request.add', ['productId' => $promotion['id']])}}" target="_blank">تست</a>
             </div>
             <div class="row my-1">
                 <div class="col-sm-4" style="display: flex; align-items: center">

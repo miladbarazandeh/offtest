@@ -44,7 +44,7 @@
         <!--پایان دکمه های منو -->
         <!--لوگو سایت -->
         <div class="col-sm-12 col-md-4 col-lg-5 ">
-            <img src="https://de.testzon.com/img/logo.png" alt="logo-page" id="logo">
+            <img src="{{asset('pic/logo.svg')}}" alt="logo-page" id="logo">
         </div>
     </div>
     <!--پایان لوگو سایت -->

@@ -207,7 +207,8 @@ body {
 /*logo*/
 #logo {
     position: relative;
-    bottom: 32px;
+    /*bottom: 32px;*/
+    height: 40px;
 }
 
 /*end logo*/

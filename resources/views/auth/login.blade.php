@@ -20,11 +20,11 @@
                     <i class="material-icons">phone_android</i>
                   </span>
                                     </div>
-                                    <input type="tel" name="phone" class="form-control" placeholder="{{ __('Phone Number') }}" value="{{ old('phone') }}" pattern="09[0-9]{9}"required>
+                                    <input type="tel" name="phone_number" class="form-control" placeholder="{{ __('Phone Number') }}" value="{{ old('phone_number') }}" pattern="09[0-9]{9}"required>
                                 </div>
-                                @if ($errors->has('phone'))
-                                    <div id="email-error" class="error text-danger pl-3" for="phone" style="display: block;">
-                                        <strong>{{ $errors->first('phone') }}</strong>
+                                @if ($errors->has('phone_number'))
+                                    <div id="phone_number-error" class="error text-danger pl-3" for="phone_number" style="display: block;">
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
                                     </div>
                                 @endif
                             </div>

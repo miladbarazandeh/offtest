@@ -13,13 +13,21 @@ class User extends Authenticatable
     const TABLE = 'users';
     const COLUMN_ID = 'id';
 
+    const STATUS_NEW = 'new';
+    const STATUS_PENDING = 'pending';
+    const STATUS_CONFIRMED = 'confirmed';
+    const STATUS_LIMITED = 'limited'; // Expired contract
+    const STATUS_RESTRICTED = 'restricted'; // Expired contract
+    const STATUS_BLOCKED = 'blocked'; // delete accounts, due to history tracking
+    const STATUS_DELETED = 'deleted'; // delete accounts, due to history tracking
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone_number', 'status', 'phone_verified_at', 'email_verified_at'
     ];
 
     /**
@@ -48,10 +56,21 @@ class User extends Authenticatable
     {
         return $this->name;
     }
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone_number;
+    }
+
+    public function isPhoneVerified() : bool
+    {
+        return $this->phone_verified_at != null;
+    }
+
     public function getFirstName(): string
     {
         if ($this->name) {
